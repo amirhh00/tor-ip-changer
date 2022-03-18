@@ -1,7 +1,11 @@
 #! /usr/bin/env python
 
+import os
+os.system('Xvfb :1 -screen 0 1600x1200x16  &')    # create virtual display with size 1600x1200 and 16 bit color. Color can be changed to 24 or 8
+os.environ['DISPLAY']=':1.0'    # tell X clients to use our virtual DISPLAY :1.0.
+
 # import vsech potrebnych modulu
-import sys, tkinter.ttk, random, _thread, time, tkinter.scrolledtext, socket, logging, os, argparse, urllib3, string, json, urllib.request, configparser, subprocess, sqlite3, webbrowser, re, ssl
+import sys, tkinter.ttk, random, _thread, time, tkinter.scrolledtext, socket, logging, argparse, urllib3, string, json, urllib.request, configparser, subprocess, sqlite3, webbrowser, re, ssl
 
 if sys.platform == "win32":
     windows = True
