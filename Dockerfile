@@ -10,11 +10,11 @@ RUN apt-get update \
 FROM ubuntu:20.04
 WORKDIR /app
 COPY --from=builder /usr/bin/ipchanger /usr/bin/ipchanger
-COPY --from=builder /app/requirements/linux/meek-client_0.20+git20151006-1_amd64.deb /app/meek-client_0.20+git20151006-1_amd64.deb
+# COPY --from=builder /app/requirements/linux/meek-client_0.20+git20151006-1_arm64.deb /app/meek-client_0.20+git20151006-1_arm64.deb
 RUN apt-get update \
         && DEBIAN_FRONTEND=noninteractive apt -y install xvfb curl tor obfs4proxy psmisc python3-tk iputils-ping ca-certificates \
-        && dpkg -i /app/meek-client_0.20+git20151006-1_amd64.deb \
-        && rm -f /app/meek-client_0.20+git20151006-1_amd64.deb \
+        # && dpkg -i /app/meek-client_0.20+git20151006-1_arm64.deb \
+        # && rm -f /app/meek-client_0.20+git20151006-1_arm64.deb \
         && apt -y clean \
         && rm -rf /var/lib/apt/lists/*
 RUN rm -rf /tmp/.X1-lock
